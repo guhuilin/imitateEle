@@ -3,49 +3,36 @@
       <swiper class="swiper">
         <!-- <block> -->
           <swiper-item class="nav">
-            <dl class="nav-dl" v-for="(item,index) in cateListDataone" :key="index">
-              <dt><img src="../../../../static/images/user.png" alt=""></dt>
+            <dl class="nav-dl" v-for="(item,index) in cateListDataOne" :key="index">
+              <dt><img :src="item.image_url ? ('https://fuss10.elemecdn.com' + item.image_url) : ''" alt=""></dt>
               <dd>{{item.title}}</dd>
             </dl>
-            <!-- <dl class="nav-dl">
-              <dt><img src="../../../../static/images/user.png" alt=""></dt>
-              <dd>甜品饮品</dd>
-            </dl>
-            <dl class="nav-dl">
-              <dt><img src="../../../../static/images/user.png" alt=""></dt>
-              <dd>商超便利</dd>
-            </dl>
-            <dl class="nav-dl">
-              <dt><img src="../../../../static/images/user.png" alt=""></dt>
-              <dd>美食</dd>
-            </dl>
-            <dl class="nav-dl">
-              <dt><img src="../../../../static/images/user.png" alt=""></dt>
-              <dd>简餐</dd>
-            </dl>
-            <dl class="nav-dl">
-              <dt><img src="../../../../static/images/user.png" alt=""></dt>
-              <dd>新店特惠</dd>
-            </dl>
-            <dl class="nav-dl">
-              <dt><img src="../../../../static/images/user.png" alt=""></dt>
-              <dd>新店特惠</dd>
-            </dl>
-            <dl class="nav-dl">
-              <dt><img src="../../../../static/images/user.png" alt=""></dt>
-              <dd>新店特惠</dd>
-            </dl> -->
-            <!-- <image src="{{item}}" class="slide-image" width="355" height="150"/> -->
           </swiper-item>
-          <swiper-item class="w2">
-            222
-            <!-- <image src="{{item}}" class="slide-image" width="355" height="150"/> -->
+          <swiper-item class="nav">
+            <dl class="nav-dl" v-for="(item,index) in cateListDataTwo" :key="index">
+              <dt><img :src="item.image_url ? ('https://fuss10.elemecdn.com' + item.image_url) : ''" alt=""></dt>
+              <dd>{{item.title}}</dd>
+            </dl>
           </swiper-item>
         <!-- </block> -->
-      </swiper>      
-      <!-- <div class="nav">
-        
-      </div> -->
+      </swiper> 
+
+      <div class="ListBox">
+        <p class="title">
+          <span class="Titleimg"><img src="../../../../static/images/商店.svg" alt=""></span>
+          <span class="txt">附近商家</span>
+        </p>
+        <div class="shopList">
+          <dl class="shopListDl">
+            <dt><img src="../../../../static/images/user.png" alt=""></dt>
+            <dd>
+              <div class="brand"><p><span>品牌</span><span>效果演示</span></p><span>保准票</span></div>
+              <div class="OnSale"><p><span>4.7</span><span>月售106单</span></p><p><span>蜂鸟专送</span><span>准时送</span></p></div>
+              <div class="price_cilometre"><p><span>￥20起送/配送费约￥5</span><span>1116.2公里/</span><span>11小时58分钟</span></p></div>
+            </dd>
+          </dl>
+        </div>
+      </div>
     </div>
 </template>
 
@@ -54,17 +41,24 @@ import {mapState, mapActions, mapMutations} from 'vuex';
 
 export default {
   data(){
-    return {}
+    return {
+      // imgSrc:'https://fuss10.elemecdn.com/2/35/696aa5cf9820adada9b11a3d14bf5jpeg.jpeg'
+    }
   },
   computed: {
     ...mapState({
       //导航分类一部分
-      cateListDataone: state => {
+      cateListDataOne: state => {
         const Data1 = state.index.CateListData.slice(0,8);
         // console.log(Data1,'data1')
         return Data1;
-      }
+      },
       //导航分类二部分
+      cateListDataTwo: state => {
+        const Data2 = state.index.CateListData.slice(8,16);
+        // console.log(Data1,'data1')
+        return Data2;
+      }
     })
   },
   methods: {
@@ -97,13 +91,10 @@ export default {
   height: 100%;
   background: #ccc;
 }
+/* 导航轮播 */
 .swiper{
   width: 100%;
   height: 200px;
-  /* background: #f00; */
-}
-.w2{
-  background:#00f;
 }
 .nav{
   width: 100%;
@@ -129,5 +120,70 @@ export default {
   height: 50px;
   padding-top:10px;
 }
+/* 列表 */
+.ListBox{
+  width: 100%;
+  background: #fff;
+  margin-top:10px;
+}
+.title{
+  width: 100%;
+  color:#999;
+  font-size: 14px;
+  padding:8px 0 0 0;
+  display: flex;
+  align-items: center;
+}
+.txt{
+  margin-left:10px;
+}
+.Titleimg>img{
+  width: 15px;
+  height: 15px;
+  margin-left:10px;
+  margin-top:5px;
+}
+.shopList{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  /* border-bottom:solid 1px #f1f1f1; */
+}
+.shopListDl{
+  display: flex;
+  font-size: 13px;
+  padding:15px 5px 15px 10px;
+  box-sizing: border-box;
+  border-bottom:solid 1px #f1f1f1;
+}
+.shopListDl>dt>img{
+  width: 63px;
+  height: 63px;
+  background: #f00;
+}
+.shopListDl>dd{
+  margin-left:8px;
+  /* display: flex; */
+}
+.brand{
+  width: 100%;
+  background: orange;
+  margin-top:5px;
+  display: flex;
+  justify-content: space-between;
+}
+/* .brand>span:nth-child(1){
 
+} */
+.OnSale{
+  width: 100%;
+  background:skyblue;
+  display: flex;
+  margin-top:5px;
+}
+.price_cilometre{
+  width: 100%;
+  background: sandybrown;
+  margin-top:5px;
+}
 </style>
