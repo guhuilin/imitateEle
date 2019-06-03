@@ -28,7 +28,22 @@
             <dd>
               <div class="brand"><p><span>品牌</span><span>效果演示</span></p><span>保准票</span></div>
               <div class="OnSale"><p><span>4.7</span><span>月售106单</span></p><p><span>蜂鸟专送</span><span>准时送</span></p></div>
-              <div class="price_cilometre"><p><span>￥20起送/配送费约￥5</span><span>1116.2公里/</span><span>11小时58分钟</span></p></div>
+              <div class="price_cilometre">
+                <p><span>￥20起送/配送费约￥5</span></p>
+                <p><span>1116.2公里/</span><span>11小时58分钟</span></p>
+              </div>
+            </dd>
+          </dl>
+
+          <dl class="shopListDl">
+            <dt><img src="../../../../static/images/user.png" alt=""></dt>
+            <dd>
+              <div class="brand"><p><span>品牌</span><span>效果演示</span></p><span>保准票</span></div>
+              <div class="OnSale"><p><span>4.7</span><span>月售106单</span></p><p><span>蜂鸟专送</span><span>准时送</span></p></div>
+              <div class="price_cilometre">
+                <p><span>￥20起送/配送费约￥5</span></p>
+                <p><span>1116.2公里/</span><span>11小时58分钟</span></p>
+              </div>
             </dd>
           </dl>
         </div>
@@ -165,25 +180,71 @@ export default {
   margin-left:8px;
   /* display: flex; */
 }
+/* 第一行 */
 .brand{
   width: 100%;
-  background: orange;
   margin-top:5px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-/* .brand>span:nth-child(1){
-
-} */
+.brand>p>span:nth-child(1){
+  background: #ffd930;
+  font-weight: 600;
+  color:#333;
+}
+.brand>p>span:nth-child(2){
+  font-size: 18px;
+  font-weight: bold;
+  margin-left:5px;
+}
+.brand>span{
+  font-size: 12px;
+  color:#999;
+}
+/* 第二行 */
 .OnSale{
   width: 100%;
-  background:skyblue;
+  /* background:skyblue; */
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-top:5px;
 }
+.OnSale>p:nth-child(1)>span:nth-child(1){
+  color:#ffd930;
+  font-size: 10px;
+}
+.OnSale>p:nth-child(1)>span:nth-child(2){
+  font-size: 8px;
+  margin-left:5px;
+}
+.OnSale>p:nth-child(2)>span:nth-child(1){
+  /* display: block;
+  width: 30px;
+  height: 10px; */
+  font-size: 9px;
+  background: #3190e8;
+  margin-right:5px;
+  color:#fff;
+}
+.OnSale>p:nth-child(2)>span:nth-child(2){
+  /* display: block;
+  width: 30px;
+  height: 10px; */
+  font-size: 9px;
+  border:solid 1px #3190e8;
+  color:#3190e8;
+}
+/* 第三行 */
 .price_cilometre{
   width: 100%;
-  background: sandybrown;
+  /* background: sandybrown; */
   margin-top:5px;
+  display: flex;
+  color:#999;
+}
+.price_cilometre>p:nth-child(2)>span:nth-child(2){
+  color:#3190e8;
 }
 </style>
