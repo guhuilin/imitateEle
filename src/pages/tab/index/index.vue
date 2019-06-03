@@ -1,5 +1,5 @@
 <template>
-  <p>首页</p>
+  <p @click="goCity">首页</p>
 </template>
 
 <script>
@@ -14,7 +14,10 @@ export default {
   methods: {
     ...mapActions({
       getCateList: 'index/getCateList'
-    })
+    }),
+    goCity() {
+      
+    }
   },
   mounted() {
     console.log('this.list...', this.list);
