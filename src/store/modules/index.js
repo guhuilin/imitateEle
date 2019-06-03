@@ -1,7 +1,9 @@
-import {getCateList} from "@/api/index"
+import {
+  getCateList
+} from "@/api/index"
 
 const state = {
-  list: [1,2,3,4]
+  list: []
 }
 
 const mutations = {

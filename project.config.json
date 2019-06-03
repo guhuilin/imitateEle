@@ -10,7 +10,7 @@
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
-	"appid": "wx6c85dc0083b1569f",
+	"appid": "wx9ff0aa400a6efa4a",
 	"projectname": "imitateEle",
 	"condition": {
 		"search": {
