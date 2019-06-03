@@ -23,7 +23,7 @@
           <span class="txt">附近商家</span>
         </p>
         <div class="shopList">
-          <dl class="shopListDl">
+          <dl class="shopListDl" @click="detail">
             <dt><img src="../../../../static/images/user.png" alt=""></dt>
             <dd>
               <div class="brand"><p><span>品牌</span><span>效果演示</span></p><span>保准票</span></div>
@@ -82,7 +82,12 @@ export default {
     }),
     ...mapMutations({
       CateList:'index/CateList' //导航分类
-    })
+    }),
+    detail(){
+      wx.navigateTo({
+        url:'../indexDetail/main'
+      })
+    }
   },
   async created(){
     this.getCateList()
