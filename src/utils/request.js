@@ -1,4 +1,4 @@
-import Fly from "flyio"
+var Fly = require("flyio/dist/npm/wx")
 import store from '@/store/index'
 
 const fly = new Fly()
@@ -49,21 +49,22 @@ const version = '1.0.0'
 // })
 
 //添加响应拦截器，响应拦截器会在then/catch处理之前执行
-// fly.interceptors.response.use(
-//     (response) => {
-//         // 截取cookie
-//         // let hcks = response.headers['set-cookie'] || response.headers['Set-Cookie']
-//         // if (hcks != null) {
-//         //     hcks.forEach(v => {
-//         //         let ck = v.split(';')[0].split('=')
-//         //         cookies[ck[0]] = ck[1]
-//         //     })
-//         // }
-//         // // return response.data;
-//         // (err) => {
-//         //     //发生网络错误后会走到这里
-//         //     //return Promise.resolve("ssss")
-//         // }
-//     })
+fly.interceptors.response.use(
+    (response) => {
+        // 截取cookie
+        // let hcks = response.headers['set-cookie'] || response.headers['Set-Cookie']
+        // if (hcks != null) {
+        //     hcks.forEach(v => {
+        //         let ck = v.split(';')[0].split('=')
+        //         cookies[ck[0]] = ck[1]
+        //     })
+        // }
+        return response.data;
+        // (err) => {
+        //     //发生网络错误后会走到这里
+        //     //return Promise.resolve("ssss")
+        // }
+    }
+)
 
 export default fly
