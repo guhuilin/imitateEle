@@ -3,11 +3,11 @@
       <swiper class="swiper">
         <!-- <block> -->
           <swiper-item class="nav">
-            <dl class="nav-dl">
+            <dl class="nav-dl" v-for="(item,index) in cateListDataone" :key="index">
               <dt><img src="../../../../static/images/user.png" alt=""></dt>
-              <dd>甜品饮品</dd>
+              <dd>{{item.title}}</dd>
             </dl>
-            <dl class="nav-dl">
+            <!-- <dl class="nav-dl">
               <dt><img src="../../../../static/images/user.png" alt=""></dt>
               <dd>甜品饮品</dd>
             </dl>
@@ -34,7 +34,7 @@
             <dl class="nav-dl">
               <dt><img src="../../../../static/images/user.png" alt=""></dt>
               <dd>新店特惠</dd>
-            </dl>
+            </dl> -->
             <!-- <image src="{{item}}" class="slide-image" width="355" height="150"/> -->
           </swiper-item>
           <swiper-item class="w2">
@@ -50,25 +50,39 @@
 </template>
 
 <script>
-import {mapState, mapActions} from 'vuex';
+import {mapState, mapActions, mapMutations} from 'vuex';
 
 export default {
-  
+  data(){
+    return {}
+  },
   computed: {
     ...mapState({
-      list: state=>state.index.list
+      //导航分类一部分
+      cateListDataone: state => {
+        const Data1 = state.index.CateListData.slice(0,8);
+        // console.log(Data1,'data1')
+        return Data1;
+      }
+      //导航分类二部分
     })
   },
   methods: {
     ...mapActions({
-      getCateList: 'index/getCateList'
+      getCateList: 'index/getCateList',//导航分类
+    }),
+    ...mapMutations({
+      CateList:'index/CateList' //导航分类
     })
   },
-  mounted() {
-    // console.log('this.list...', this.list);
-    this.getCateList();
-    // console.log(this.getCateList(),'11')
+  async created(){
+    this.getCateList()
   }
+  // mounted() {
+    // console.log('this.list...', this.list);
+    // this.getCateList();
+    // console.log(this.getCateList(),'11')
+  // }
 }
 </script>
 
@@ -80,6 +94,8 @@ export default {
 }
 .wrap{
   width: 100%;
+  height: 100%;
+  background: #ccc;
 }
 .swiper{
   width: 100%;
@@ -97,7 +113,7 @@ export default {
 }
 .nav-dl{
   width: 94.2px;
-  background: #ccc;
+  background: #fff;
   display: flex;
   flex-direction: column;
   text-align: center;
