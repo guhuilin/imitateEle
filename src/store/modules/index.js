@@ -21,8 +21,7 @@ const mutations = {
 }
 
 const actions = {
-  // gu
-  async getCateList() {
+  async getCateList(){
     let data = await getCateList();
   },
   async getHotCity({ commit }, payload) {
