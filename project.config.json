@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -50,6 +50,13 @@
 					"id": -1,
 					"name": "订单",
 					"pathName": "pages/tab/order/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索城市",
+					"pathName": "pages/tab/city/main",
 					"scene": null
 				}
 			]
