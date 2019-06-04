@@ -2,9 +2,11 @@
   "pages": [
     "pages/index/main",
     "pages/find/main",
-    "pages/order/main",
     "pages/my/main",
-    "pages/shopping/main"
+    "pages/order/main",    
+    "pages/shopping/main",
+    "pages/Member/main",
+    "pages/explain/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
