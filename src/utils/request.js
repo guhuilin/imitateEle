@@ -1,17 +1,16 @@
-// import Fly from "flyio"
-var Fly = require("flyio/dist/npm/wx");
+var Fly = require("flyio/dist/npm/wx")
 import store from '@/store/index'
 
-const fly = new Fly();
+const fly = new Fly()
 
 //设置超时
-// fly.config.timeout = 10000;
+fly.config.timeout = 10000;
 //设置请求基地址
-// fly.config.baseURL = "https://upapi.jinaup.com/"
+fly.config.baseURL = "https://upapi.jinaup.com/"
 // fly.config.baseURL = store.state.requsetUrl?store.state.requsetUrl:"https://upapi.jinaup.com/"
 
     // 设置版本号
-// const version = '1.0.0' 
+const version = '1.0.0'
 
 // let cookies = {}
 //     //添加请求拦截器
@@ -50,8 +49,8 @@ const fly = new Fly();
 // })
 
 //添加响应拦截器，响应拦截器会在then/catch处理之前执行
-// fly.interceptors.response.use(
-    // (response) => {
+fly.interceptors.response.use(
+    (response) => {
         // 截取cookie
         // let hcks = response.headers['set-cookie'] || response.headers['Set-Cookie']
         // if (hcks != null) {
@@ -60,11 +59,12 @@ const fly = new Fly();
         //         cookies[ck[0]] = ck[1]
         //     })
         // }
-        // return response.data;
+        return response.data;
         // (err) => {
         //     //发生网络错误后会走到这里
         //     //return Promise.resolve("ssss")
         // }
-    // })
+    }
+)
 
 export default fly

@@ -10,6 +10,7 @@ const mutations = {
 
 const actions = {
   async getCateList(){
+    
     let data = await getCateList();
     console.log('data...', data);
   }
