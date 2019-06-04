@@ -1,149 +1,255 @@
 <template>
-  <div class="box">
-    <header>
+    <div class="wrap">
+      <swiper class="swiper">
+        <!-- <block> -->
+          <swiper-item class="nav">
+            <dl class="nav-dl" v-for="(item,index) in cateListDataOne" :key="index">
+              <dt><img :src="item.image_url ? ('https://fuss10.elemecdn.com' + item.image_url) : ''" alt=""></dt>
+              <dd>{{item.title}}</dd>
+            </dl>
+          </swiper-item>
+          <swiper-item class="nav">
+            <dl class="nav-dl" v-for="(item,index) in cateListDataTwo" :key="index">
+              <dt><img :src="item.image_url ? ('https://fuss10.elemecdn.com' + item.image_url) : ''" alt=""></dt>
+              <dd>{{item.title}}</dd>
+            </dl>
+          </swiper-item>
+        <!-- </block> -->
+      </swiper> 
 
-    </header>
-    <section>
-      <p class="shop">附近商家</p>
-      <ul>
-        <li class="shoppings" v-for="(val,index) in list" :key="index">
-          <img class="shopimg" src="" alt="">
-          <div class="rightval">
-            <div class="righttop">
-              <p>
-                <span class="brand">品牌</span>
-                <span class="name">{{val.name}}</span>
-              </p>
-              <p>
-                <span v-for="(x,y) in val.supports" :key="y" class="icon_name">{{x.icon_name}}</span>
-              </p>
-            </div>
-            <div class="rightsection">
-              <p>
-                <p class="start" style="background: red">
-                  <span class="starts">☆</span>
-                  <span class="starts">☆</span>
-                  <span class="starts">☆</span>
-                  <span class="starts">☆</span>
-                  <span class="starts">☆</span>
-                </p>
-                <p class="starts">{{val.rating}}</p>
-              </p>
-              <p>
+      <div class="ListBox">
+        <p class="title">
+          <span class="Titleimg"><img src="../../../../static/images/商店.svg" alt=""></span>
+          <span class="txt">附近商家</span>
+        </p>
+        <div class="shopList">
+          <dl class="shopListDl" @click="detail">
+            <dt><img src="../../../../static/images/user.png" alt=""></dt>
+            <dd>
+              <div class="brand"><p><span>品牌</span><span>效果演示</span></p><span>保准票</span></div>
+              <div class="OnSale"><p><span>4.7</span><span>月售106单</span></p><p><span>蜂鸟专送</span><span>准时送</span></p></div>
+              <div class="price_cilometre">
+                <p><span>￥20起送/配送费约￥5</span></p>
+                <p><span>1116.2公里/</span><span>11小时58分钟</span></p>
+              </div>
+            </dd>
+          </dl>
 
-              </p>
-            </div>
-            <div class="rightbottom"></div>
-          </div>
-        </li>
-      </ul>
-    </section>
-  </div>
+          <dl class="shopListDl">
+            <dt><img src="../../../../static/images/user.png" alt=""></dt>
+            <dd>
+              <div class="brand"><p><span>品牌</span><span>效果演示</span></p><span>保准票</span></div>
+              <div class="OnSale"><p><span>4.7</span><span>月售106单</span></p><p><span>蜂鸟专送</span><span>准时送</span></p></div>
+              <div class="price_cilometre">
+                <p><span>￥20起送/配送费约￥5</span></p>
+                <p><span>1116.2公里/</span><span>11小时58分钟</span></p>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
 </template>
 
 <script>
-  import { mapState, mapActions } from 'vuex';
-  export default {
-    data() {
-      return {
-        list: []
+import {mapState, mapActions, mapMutations} from 'vuex';
+
+export default {
+  data(){
+    return {
+      // imgSrc:'https://fuss10.elemecdn.com/2/35/696aa5cf9820adada9b11a3d14bf5jpeg.jpeg'
+    }
+  },
+  computed: {
+    ...mapState({
+      //导航分类一部分
+      cateListDataOne: state => {
+        const Data1 = state.index.CateListData.slice(0,8);
+        // console.log(Data1,'data1')
+        return Data1;
+      },
+      //导航分类二部分
+      cateListDataTwo: state => {
+        const Data2 = state.index.CateListData.slice(8,16);
+        // console.log(Data1,'data1')
+        return Data2;
       }
-    },
-    computed: {
-      ...mapState({
-        list: state => state.index.list
+    })
+  },
+  methods: {
+    ...mapActions({
+      getCateList: 'index/getCateList',//导航分类
+    }),
+    ...mapMutations({
+      CateList:'index/CateList' //导航分类
+    }),
+    detail(){
+      wx.navigateTo({
+        url:'../indexDetail/main'
       })
-    },
-    methods: {
-      ...mapActions({
-        getCateList: 'index/getCateList',
-        getShop: 'index/getShop'
-      })
-    },
-    async mounted() {
-      this.getCateList()
-      this.list =await this.getShop({
-        latitude: 31.22299,
-        longitude: 121.36025
-      })
-      console.log(this.list, 'data')
-    },
+    }
+  },
+  async created(){
+    this.getCateList()
   }
+  // mounted() {
+    // console.log('this.list...', this.list);
+    // this.getCateList();
+    // console.log(this.getCateList(),'11')
+  // }
+}
 </script>
 
 <style scoped>
-  html,
-  body,
-  page {
-    width: 100%;
-    height: 100%;
-  }
-
-  .box {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  section {
-    width: 100%;
-    border: 1px solid #ccc;
-  }
-
-  .shop {
-    font-size: 16px;
-    color: #999;
-    padding: 5px 0 15px 5px;
-  }
-
-  .shoppings {
-    width: 100%;
-    border-bottom: 1px solid #ccc;
-  }
-  .shopimg{
-    width: 63px;
-    height: 63px;
-    background: red;
-    margin:25px 5px 25px 8px;
-    float: left;
-    
-  }
-  .rightval{
-    display: inline-block;
-    width: 80%;
-  }
-  .righttop{
-    margin-top:25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .righttop,.rightsection,.rightbottom{
-    width: 97%;
-    height:40px;
-  }
-  .rightsection{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .brand{
-    font-size: 12px;
-    padding:2px 5px;
-    background: #ffd930;
-    color: #333;
-  }
-  .name{
-    font-size:16px;
-    font-weight: bold;
-  }
-  .icon_name{
-    font-size: 12px;
-    color: #999;
-    margin-left: 5px;
-  }
-  .starts{
-    font-size: 14px;
-  }
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.wrap{
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+}
+/* 导航轮播 */
+.swiper{
+  width: 100%;
+  height: 200px;
+}
+.nav{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.nav-dl{
+  width: 94.2px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top:1px;
+  vertical-align: middle;
+}
+.nav-dl>dd{
+  font-size: 13px;
+  padding:5px 0px;
+}
+.nav-dl>dt>img{
+  width: 50px;
+  height: 50px;
+  padding-top:10px;
+}
+/* 列表 */
+.ListBox{
+  width: 100%;
+  background: #fff;
+  margin-top:10px;
+}
+.title{
+  width: 100%;
+  color:#999;
+  font-size: 14px;
+  padding:8px 0 0 0;
+  display: flex;
+  align-items: center;
+}
+.txt{
+  margin-left:10px;
+}
+.Titleimg>img{
+  width: 15px;
+  height: 15px;
+  margin-left:10px;
+  margin-top:5px;
+}
+.shopList{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  /* border-bottom:solid 1px #f1f1f1; */
+}
+.shopListDl{
+  display: flex;
+  font-size: 13px;
+  padding:15px 5px 15px 10px;
+  box-sizing: border-box;
+  border-bottom:solid 1px #f1f1f1;
+}
+.shopListDl>dt>img{
+  width: 63px;
+  height: 63px;
+  background: #f00;
+}
+.shopListDl>dd{
+  margin-left:8px;
+  /* display: flex; */
+}
+/* 第一行 */
+.brand{
+  width: 100%;
+  margin-top:5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand>p>span:nth-child(1){
+  background: #ffd930;
+  font-weight: 600;
+  color:#333;
+}
+.brand>p>span:nth-child(2){
+  font-size: 18px;
+  font-weight: bold;
+  margin-left:5px;
+}
+.brand>span{
+  font-size: 12px;
+  color:#999;
+}
+/* 第二行 */
+.OnSale{
+  width: 100%;
+  /* background:skyblue; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top:5px;
+}
+.OnSale>p:nth-child(1)>span:nth-child(1){
+  color:#ffd930;
+  font-size: 10px;
+}
+.OnSale>p:nth-child(1)>span:nth-child(2){
+  font-size: 8px;
+  margin-left:5px;
+}
+.OnSale>p:nth-child(2)>span:nth-child(1){
+  /* display: block;
+  width: 30px;
+  height: 10px; */
+  font-size: 9px;
+  background: #3190e8;
+  margin-right:5px;
+  color:#fff;
+}
+.OnSale>p:nth-child(2)>span:nth-child(2){
+  /* display: block;
+  width: 30px;
+  height: 10px; */
+  font-size: 9px;
+  border:solid 1px #3190e8;
+  color:#3190e8;
+}
+/* 第三行 */
+.price_cilometre{
+  width: 100%;
+  /* background: sandybrown; */
+  margin-top:5px;
+  display: flex;
+  color:#999;
+}
+.price_cilometre>p:nth-child(2)>span:nth-child(2){
+  color:#3190e8;
+}
 </style>

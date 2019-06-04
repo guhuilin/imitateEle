@@ -10,7 +10,7 @@
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
-	"appid": "wxdaab210b20350293",
+	"appid": "wx9ff0aa400a6efa4a",
 	"projectname": "imitateEle",
 	"condition": {
 		"search": {
@@ -57,6 +57,12 @@
 					"id": -1,
 					"name": "搜索城市",
 					"pathName": "pages/tab/city/main",
+					"current": 0
+				},
+				{
+					"id": -1,
+					"name": "detail",
+					"pathName": "pages/tab/indexDetail/main",
 					"scene": null
 				}
 			]

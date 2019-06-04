@@ -44,7 +44,7 @@ body,html{
   -webkit-transition: width 2s;
   -o-transition: width 2s;
 }
-html,body,page {
+html,body{
   width: 100%;
   height: 100%;
 }

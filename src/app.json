@@ -9,13 +9,14 @@
     "pages/find/main",
     "pages/order/main",
     "pages/my/main",
-    "pages/shopping/main"
+    "pages/shopping/main",
+    "pages/tab/indexDetail/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "饿了吗",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#3190e8",
+    "navigationBarTitleText": "高仿饿了么",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#999",
