@@ -15,11 +15,11 @@
           <div :class="flag==3?'select selectActive':'select selectDefault'"></div>
         </div>
       </div>
-      <div class="comProType">
-        <ProListType v-if="flag==1"/>
-        <ProSort v-if="flag==2"/>
-        <ProFilter v-if="flag==3"/>
-      </div>
+    </div>
+    <div class="comProType">
+      <ProListType v-if="flag==1"/>
+      <ProSort v-else-if="flag==2"/>
+      <ProFilter v-else-if="flag==3"/>
     </div>
     <div class="proListWrap">
       <div class="itemWrap" v-for="(item,index) in listData.listData" :key="index">
@@ -146,7 +146,6 @@ export default {
     }),
     isShowFn(flag){
       this.flag = flag;
-      console.log('tag', this.flag)
     }
   }
 }
@@ -164,6 +163,7 @@ page{
   flex-direction: column;
   font-size: 14px;
   font-weight: 400;
+  position: relative;
 }
 .topBar{
   width: 100%;
@@ -172,7 +172,6 @@ page{
   color: #333;
   box-sizing: border-box;
   border-bottom: 1px solid #f1f1f1;
-  position: relative;
 }
 .typeWrap{
   height: 100%;
@@ -211,6 +210,7 @@ page{
   width: 100%;
   position: absolute;
   top: 40px;
+  bottom: 0;
   left: 0;
   z-index: 66;
 }

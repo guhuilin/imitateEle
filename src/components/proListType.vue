@@ -55,14 +55,12 @@ export default {
     width: 100%;
     display: flex;
     color: #333;
-    
   }
   .typeLeft{
     width: 50%;
-    
     box-sizing: border-box;
     font-size: 12px;
-    background-color: #f1f1f1; 
+    background: #f1f1f1; 
   }
   .typeLeft>div{
     width: 100%;
