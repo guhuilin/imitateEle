@@ -10,8 +10,8 @@
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
-	"appid": "wx9eadb4c07c207077",
-	"projectname": "ele",
+	"appid": "wxdaab210b20350293",
+	"projectname": "imitateEle",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -30,12 +30,33 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
-					"name": "prolist",
-					"pathName": "pages/productList/main",
+					"name": "搜索",
+					"pathName": "pages/tab/search/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/tab/index/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/tab/order/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索城市",
+					"pathName": "pages/tab/city/main",
 					"scene": null
 				}
 			]

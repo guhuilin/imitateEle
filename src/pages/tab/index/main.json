@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "这是个地址栏的参数,点击可跳转",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}
