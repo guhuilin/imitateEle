@@ -4,42 +4,46 @@
     "pages/tab/search/main",
     "pages/tab/order/main",
     "pages/tab/my/main",
-    "pages/tab/city/main"
+    "pages/tab/city/main",
+    "pages/index/main",
+    "pages/find/main",
+    "pages/order/main",
+    "pages/my/main",
+    "pages/shopping/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "高仿饿了么",
+    "navigationBarTitleText": "饿了吗",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#666",
+    "color": "#999",
     "backgroundColor": "#fafafa",
-    "selectedColor": "#3190e8",
+    "selectedColor": "#333",
     "borderStyle": "white",
 
     "list": [{
       "text": "外卖",
-      "pagePath": "pages/tab/index/main",
-      "iconPath": "static/tabs/home.png",
-      "selectedIconPath": "static/tabs/home-active.png"
+      "pagePath": "pages/index/main",
+      "iconPath": "static/tabs/饿了么.png",
+      "selectedIconPath": "static/tabs/饿了么 (1).png"
     }, {
-      "text": "搜索",
-      "pagePath": "pages/tab/search/main",
-      "iconPath": "static/tabs/orders.png",
-      "selectedIconPath": "static/tabs/orders-active.png"
-    },{
+      "text": "发现",
+      "pagePath": "pages/find/main",
+      "iconPath": "static/tabs/指南针.png",
+      "selectedIconPath": "static/tabs/指南针 (1).png"
+    }, {
       "text": "订单",
-      "pagePath": "pages/tab/order/main",
-      "iconPath": "static/tabs/home.png",
-      "selectedIconPath": "static/tabs/home-active.png"
+      "pagePath": "pages/order/main",
+      "iconPath": "static/tabs/订单.png",
+      "selectedIconPath": "static/tabs/订单 (1).png"
     }, {
       "text": "我的",
-      "pagePath": "pages/tab/my/main",
-      "iconPath": "static/tabs/orders.png",
-      "selectedIconPath": "static/tabs/orders-active.png"
+      "pagePath": "pages/my/main",
+      "iconPath": "static/tabs/我的.png",
+      "selectedIconPath": "static/tabs/我的 (1).png"
     }],
-
     "position": "bottom"
   }
 }

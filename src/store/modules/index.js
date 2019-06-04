@@ -1,4 +1,4 @@
-import { getCateList, hotCityApi, letterCityApi } from "@/api/index"
+import { getCateList, hotCityApi, letterCityApi, getShopList } from "@/api/index"
 
 const state = {
   list: [1, 2, 3, 4],
@@ -9,9 +9,13 @@ const mutations = {
   hotCityList(state, result) {
     this.hotCity = result;
   },
+  updateShopList (state, payload) {
+    state.shopList = payload
+  }
 }
 
 const actions = {
+  // gu
   async getCateList() {
     let data = await getCateList();
   },
@@ -23,6 +27,15 @@ const actions = {
     let result = await letterCityApi(payload);
     console.log(result,'...')
     return result;
+  },
+  // su
+  async getCateList () {
+    let data = await getCateList()
+    console.log('data...', data)
+  },
+  async getShopList ({ commit }) {
+    let data = await getShopList()
+    commit('updateShopList', data)
   }
 }
 

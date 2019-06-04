@@ -1,15 +1,13 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import Logger from 'vuex/dist/logger';
+import Vue from 'vue'
+import Vuex from 'vuex'
+import Longger from 'vuex/dist/logger'
+import Index from './modules/index'
 
-Vue.use(Vuex);
-
-// 引入模块
-import index from './modules/index'
+Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    index
+    Index
   },
-  plugins: [Logger()]
+  plugins: [Longger()]
 })

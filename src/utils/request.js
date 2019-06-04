@@ -1,17 +1,17 @@
 // import Fly from "flyio"
-var Fly = require("flyio/dist/npm/wx");
+var Fly = require('flyio/dist/npm/wx')
 import store from '@/store/index'
 
-const fly = new Fly();
+const fly = new Fly()
 
 //设置超时
-// fly.config.timeout = 10000;
+fly.config.timeout = 10000;
 //设置请求基地址
 // fly.config.baseURL = "https://elm.cangdu.org/"
 // fly.config.baseURL = store.state.requsetUrl?store.state.requsetUrl:"https://upapi.jinaup.com/"
 
     // 设置版本号
-// const version = '1.0.0' 
+// const version = '1.0.0'
 
 // let cookies = {}
     //添加请求拦截器
