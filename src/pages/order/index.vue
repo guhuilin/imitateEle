@@ -1,13 +1,13 @@
 <template>
   <div class="proFilterWrap">
     <div class="proFilter">
-      <!-- 配送方式 -->
       <div class="distribution">
         <p>配送方式</p>
         <div class="disTypeWrap">
-          <div class="typeItem">
-            <span>火鸟</span>
-            <span>蜂鸟专送</span>
+          <div class="typeItem" @click="changeDisType">
+            <img src="../../static/images/check.svg" alt="" v-if="disType">
+            <span v-else>火鸟</span>
+            <span :class="disType?'colorActive':''">蜂鸟专送</span>
           </div>
         </div>
       </div>
@@ -15,7 +15,7 @@
         <p>商家属性（可以多选）</p>
         <div class="busChose">
           <div
-           class="choseItem" v-for="(item,index) in filterbusData.filterbusData"
+           class="choseItem" v-for="(item,index) in businessData"
            :key="index"
            @click="()=>{checkChange(index)}">
             <img src="../../static/images/check.svg" alt="" v-if="item.checked">
@@ -23,8 +23,8 @@
             <span :class="item.checked?'colorActive':''">{{item.checkCont}}</span>
           </div>
           <!-- <div class="choseItem">
-
-            <span>准</span>
+            <img src="../../static/images/check.svg" alt="" v-if="item.checked">
+            <span>准</span>  
             <span>准时达</span>
           </div> -->
         </div>
@@ -32,7 +32,7 @@
     </div>
     <div class="bottomBtn">
       <span class="btnClear" @click="clearCheck">清空</span>
-      <p class="btnConfir">确定<span v-if="conNum">({{conNum}})</span></p>
+      <p class="btnConfir" @click="confirFn">确定<span v-if="conNum">({{conNum}})</span></p>
     </div>
   </div>
 </template>
@@ -43,7 +43,9 @@ import {mapState,mapMutations} from 'vuex'
 export default {
   data() {
     return {
-      conNum:""
+      businessData:[],
+      conNum:"",
+      disType:false
     }
   },
   computed: {
@@ -52,40 +54,42 @@ export default {
     })
   },
   mounted(){
+    this.businessData=Object.assign([],this.filterbusData.filterbusData);
     this.changeCheck();
-    // let filterbusData=this.filterbusData.filterbusData.map(item=>item);
-    // let conNum=filterbusData.filter(item=>item.checked)
-    // this.conNum=conNum.length;
   },
   methods: {
     ...mapMutations({
       updateState:'proList/updateState'
     }),
     checkChange(ind){
-      let filterbusData=this.filterbusData.filterbusData.map(item=>item);
-      
-      for(let key in filterbusData){
-        if(ind==key){
-          filterbusData[key].checked=!filterbusData[key].checked
-        }
-      }
+      let filterbusData=this.businessData;
+      filterbusData[ind].checked=!filterbusData[ind].checked
       this.changeCheck();
-      // let conNum=filterbusData.filter(item=>item.checked)
-      // this.conNum=conNum.length;
-      
-    //  this.updateState({filterbusData:filterbusData})
+      this.updateState({filterbusData:filterbusData})
+    },
+    changeDisType(){
+      this.disType=!this.disType;
+      this.changeCheck()
     },
     clearCheck(){
-      let filterbusData=this.filterbusData.filterbusData.map(item=>item);
+      let filterbusData=this.businessData;
       for(let key in filterbusData){
         filterbusData[key].checked=false
       }
+      this.disType=false;
       this.changeCheck();
     },
+    confirFn(){
+      console.log('确定')
+    },
+    // 改变选中的数量
     changeCheck(){
-      let filterbusData=this.filterbusData.filterbusData.map(item=>item);
+      let filterbusData=this.businessData;
       let conNum=filterbusData.filter(item=>item.checked)
       this.conNum=conNum.length;
+      if(this.disType){
+        this.conNum+=1;
+      }
     }
   },
 }
@@ -131,7 +135,7 @@ export default {
     border-radius: 3px;
     margin-bottom: 6px;
   }
-  .choseItem img{
+  .typeItem img,.choseItem img{
     width: 26px;
     height: 26px;
   }
@@ -180,10 +184,4 @@ export default {
   .colorActive{
     color:rgb(63, 189, 230)
   }
-  
-  /* .busChose .choseItem{
-    width: 33%;
-    display: flex;
-    align-items: center;
-  } */
 </style>
