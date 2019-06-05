@@ -109,9 +109,6 @@ export default {
   .slide{
     border-bottom: solid 1px #ccc;
   }
-  .itemCont{
-    
-  }
   .itemNum{
     padding: 0 3px;
     height: 16px;

@@ -62,7 +62,7 @@
     },
     methods: {
       ...mapActions({
-        getShopList: 'Index/getShopList'
+        getShopList: 'index/getShopList'
       }),
       Jump(v) {
         console.log(v)
