@@ -1,4 +1,4 @@
-import { getCateList, hotCityApi, letterCityApi, getShopList, getCateList } from "@/api/index"
+import { getCateList, hotCityApi, letterCityApi, getShopList } from "../../api/index.js"
 
 const state = {
   list: [1, 2, 3, 4],
@@ -22,6 +22,7 @@ const mutations = {
 
 const actions = {
   async getCateList(){
+    
     let data = await getCateList();
   },
   async getHotCity({ commit }, payload) {

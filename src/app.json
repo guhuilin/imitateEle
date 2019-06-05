@@ -10,7 +10,8 @@
     "pages/order/main",
     "pages/my/main",
     "pages/shopping/main",
-    "pages/tab/indexDetail/main"
+    "pages/tab/indexDetail/main",
+    "pages/productList/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

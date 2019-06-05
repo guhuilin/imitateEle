@@ -123,6 +123,9 @@ export default {
     return {
       title:"甜品饮品",
       flag:0,
+      proType:0,
+      proSort:0,
+      proFilter:0,
       detailImgUrl:'//elm.cangdu.org/img/'
     }
   },
@@ -145,7 +148,15 @@ export default {
       getProList:"proList/getProList"
     }),
     isShowFn(flag){
-      this.flag = flag;
+      flag==1?this.proType++:flag==2?this.proSort++:this.proFilter++;
+      if(this.proType==1||this.proSort==1||this.proFilter==1){
+        this.flag=flag;
+      }else{
+        this.proType=0;
+        this.proSort=0;
+        this.proFilter=0;
+        this.flag=0;
+      }
     }
   }
 }

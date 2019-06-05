@@ -3,11 +3,16 @@ import Vuex from 'vuex'
 import Longger from 'vuex/dist/logger'
 import Index from './modules/index'
 
-Vue.use(Vuex)
+Vue.use(Vuex);
+
+// 引入模块
+import index from './modules/index'
+import proList from './modules/productList'
 
 export default new Vuex.Store({
   modules: {
-    Index
+    index,
+    proList
   },
   plugins: [Longger()]
 })

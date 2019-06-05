@@ -1,37 +1,39 @@
 <template>
   <div class="proTypeWrap">
-    <div class="typeLeft">
-      <div class="typeTitle">
-        <span>一国料理</span>
-        <span>1853</span>
+    <div class="proType">
+      <div class="typeLeft">
+        <div class="typeTitle">
+          <span>一国料理</span>
+          <span>1853</span>
+        </div>
+        <div :class="ind==0?'typeItem itemBg':'typeItem'" @click="()=>this.sideChange()">
+          <img alt="" />
+          <span class="itemCont">快餐便当</span>
+          <span class="itemNum">1460</span>
+          <span class="itemNext">></span>
+        </div>
+        <div class="typeItem">
+          <img alt="" />
+          <span class="itemCont">快餐便当</span>
+          <span class="itemNum">1460</span>
+          <span class="itemNext">></span>
+        </div>
+        <div class="typeItem">
+          <img alt="" />
+          <span class="itemCont">快餐便当</span>
+          <span class="itemNum">1460</span>
+          <span class="itemNext">></span>
+        </div>
       </div>
-      <div :class="ind==0?'typeItem itemBg':'typeItem'" @click="()=>this.sideChange()">
-        <img alt="" />
-        <span class="itemCont">快餐便当</span>
-        <span class="itemNum">1460</span>
-        <span class="itemNext">></span>
-      </div>
-      <div class="typeItem">
-        <img alt="" />
-        <span class="itemCont">快餐便当</span>
-        <span class="itemNum">1460</span>
-        <span class="itemNext">></span>
-      </div>
-      <div class="typeItem">
-        <img alt="" />
-        <span class="itemCont">快餐便当</span>
-        <span class="itemNum">1460</span>
-        <span class="itemNext">></span>
-      </div>
-    </div>
-    <div class="typeRight">
-      <div class="slide">
-        <span>简餐</span>
-        <span>1346</span>
-      </div>
-      <div class="slide">
-        <span>简餐</span>
-        <span>1346</span>
+      <div class="typeRight">
+        <div class="slide">
+          <span>简餐</span>
+          <span>1346</span>
+        </div>
+        <div class="slide">
+          <span>简餐</span>
+          <span>1346</span>
+        </div>
       </div>
     </div>
   </div>
@@ -43,6 +45,10 @@ export default {
       ind:0
     }
   },
+  mounted() {
+    
+    console.log(this)
+  },
   methods: {
     sideChange(){
       console.log(90)
@@ -53,8 +59,14 @@ export default {
 <style scoped>
   .proTypeWrap{
     width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+  }
+  .proType{
+    width: 100%;
     display: flex;
     color: #333;
+    background: #fff;
   }
   .typeLeft{
     width: 50%;

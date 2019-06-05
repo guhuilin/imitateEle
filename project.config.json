@@ -63,6 +63,12 @@
 					"id": -1,
 					"name": "detail",
 					"pathName": "pages/tab/indexDetail/main",
+					"current": 0
+				},
+				{
+					"id": -1,
+					"name": "prolist",
+					"pathName": "pages/productList/main",
 					"scene": null
 				}
 			]
