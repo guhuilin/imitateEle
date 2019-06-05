@@ -35,7 +35,19 @@
 				{
 					"id": -1,
 					"name": "搜索",
-					"pathName": "pages/tab/search/main",
+					"pathName": "pages/tab/search/main"
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会员中心",
+					"pathName": "pages/Member/main",
 					"query": "",
 					"scene": null
 				},
@@ -64,6 +76,12 @@
 					"name": "detail",
 					"pathName": "pages/tab/indexDetail/main",
 					"current": 0
+				},
+				{
+					"id": -1,
+					"name": "倒计时",
+					"pathName": "pages/explain/main",
+					"scene": null
 				},
 				{
 					"id": -1,

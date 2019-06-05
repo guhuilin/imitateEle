@@ -65,7 +65,6 @@
         getShopList: 'index/getShopList'
       }),
       Jump(v) {
-        console.log(v)
         wx.navigateTo({
           url: '/pages/shopping/main?geohash=31.22299,121.36025&id=' + v
         })
@@ -126,8 +125,6 @@
 
   .content>div {
     display: flex;
-    /* justify-content: space-between; */
-    /* align-items: flex-end; */
   }
 
   .content_title {

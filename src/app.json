@@ -7,11 +7,13 @@
     "pages/tab/city/main",
     "pages/index/main",
     "pages/find/main",
-    "pages/order/main",
     "pages/my/main",
-    "pages/shopping/main",
     "pages/tab/indexDetail/main",
-    "pages/productList/main"
+    "pages/productList/main",
+    "pages/order/main",    
+    "pages/shopping/main",
+    "pages/Member/main",
+    "pages/explain/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,7 +26,6 @@
     "backgroundColor": "#fafafa",
     "selectedColor": "#333",
     "borderStyle": "white",
-
     "list": [{
       "text": "外卖",
       "pagePath": "pages/index/main",
